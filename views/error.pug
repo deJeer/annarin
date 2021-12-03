@@ -1,0 +1,19 @@
+extends _layout
+
+block page
+    div.page.center
+        if error === "book_not_found"
+            h1.error= lang.errors.bookNotFound
+        else if error === "paywall"
+            h1.error= lang.errors.paywall
+        else if error === "403"
+            h1.error= lang.errors.tokenError
+        else if error === "500"
+            h1.error= lang.errors.serverError
+        else if error === "429"
+            h1.error= lang.errors.rateLimit
+        else
+            h1.error Unknown Error
+
+        a.button(href="/")= lang.titlebar.home
+
